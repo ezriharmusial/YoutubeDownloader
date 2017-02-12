@@ -246,7 +246,8 @@ class YoutubeDownloader
 			elseif (preg_match('/\/watch/i', $path, $temp) && isset($urlPart['query']))
 			{
 				$query = $this->decodeString($urlPart['query']);
-				$videoId = $query['v'];
+				if (isset($query['v']))
+					$videoId = $query['v'];
 			}
 		}
 
